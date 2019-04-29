@@ -3,15 +3,17 @@
 
 
 class Payment{
+    public $db;
 
-
-    public function __constructor(){
-
+    public function __construct($conn){
+        $this->db = $conn->openConnection();
     }
 
 
     public function getAllCard(){
-        return " select * from  card_custum";
+        $sql = "SELECT * FROM card_custum";
+        return $this->db->query($sql);
+    
     }
 
 
@@ -27,6 +29,7 @@ class Payment{
 
     public function genarateCode($count){
         $insert="";
+    
         for ($i=0; $i <count ; $i++) { 
             $randnum = rand(11111111111111,99999999999999);
             $object="select * from  card_custum where code=".$randnum ;

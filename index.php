@@ -1,16 +1,37 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
 
-try {
-    $conn = new PDO("mysql:host=$servername;dbname=php_pay_native", $username, $password);
-    // set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Connected successfully"; 
-    }
-catch(PDOException $e)
-    {
-    echo "Connection failed: " . $e->getMessage();
-    }
+require_once 'Payment.php';
+require_once 'Connection.php';
+
+$conn= new Connection();
+
+$payment= new Payment($conn);
+
+try
+{
+    $database = new Connection();
+  
+    $payment= new Payment($database);
+   
+    $cards=$payment->getAllCard();
+
+    foreach ($cards  as $row) {
+        echo " ID: ".$row['id'] ."\t";
+        echo " number ".$row['number'] ."<br>";
+        }
+}
+catch (PDOException $e)
+{
+    echo "There is some problem in connection: " . $e->getMessage();
+}
+
+
+ 
+
+
+
+
+
+
 ?>
+
