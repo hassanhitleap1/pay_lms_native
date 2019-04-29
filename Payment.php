@@ -28,16 +28,20 @@ class Payment{
     }
 
     public function genarateCode($count){
-        $insert="";
-    
-        for ($i=0; $i <count ; $i++) { 
-            $randnum = rand(11111111111111,99999999999999);
-            $object="select * from  card_custum where code=".$randnum ;
-            if(empty($object)){
-                $insert.="insert into card_custum (code) values('$randnum')";
-            }
-        }
+        echo  rand(0000,9999);
+        // for ($i=0; $i <$count ; $i++) { 
+        //    // $randnum = rand(11111111111111,99999999999999);
+            
+        //    // $object="select * from  card_custum where code=".$randnum ;
+        //     // if(empty($object)){
+        //     //     $insert.="insert into card_custum (code) values('$randnum')";
+        //     // }
+        // }
     }
 
 }
+
+
+ 
+
 ?>

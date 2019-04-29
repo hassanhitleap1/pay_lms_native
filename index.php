@@ -19,6 +19,9 @@ try
         echo " ID: ".$row['id'] ."\t";
         echo " number ".$row['number'] ."<br>";
         }
+
+    $payment->genarateCode(100);
+
 }
 catch (PDOException $e)
 {
