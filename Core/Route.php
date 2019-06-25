@@ -1,9 +1,26 @@
 
+<?php 
+	class Route {
+		protected $routes=[];
 
-class Route{
+		/**
+		 * for set route in controller function
+		 * @param [string] $route // string
+		 * @param [array] $params // array
+		 * @return void 
+		 */
+		public function add($route,$params){
+			$this->routes[$route]=$params;
+		}
 
-}
-
-class Route2{
-    
-}
+		/**
+		 * return all route function
+		 * @return void
+		 */
+		public function getRoute()
+		{
+			# code...
+			return $this->routes;
+		}
+	}
+?>
